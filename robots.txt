@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://motherofmetal-droid.github.io/khepri-site/sitemap.xml
