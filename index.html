@@ -19,6 +19,11 @@
 <link rel="icon" type="image/png" href="khepri-512.png">
 <link rel="apple-touch-icon" href="khepri-512.png">
 
+<!-- Fontes (as mesmas do aplicativo). Se não carregarem, a página usa as fontes do sistema. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@400;500;600&display=swap">
+
 <!-- Idiomas (mesma ordem e códigos do core/seo.py) -->
 <link rel="alternate" hreflang="pt-BR" href="https://motherofmetal-droid.github.io/khepri/">
 <link rel="alternate" hreflang="en" href="https://motherofmetal-droid.github.io/khepri/en/">
@@ -181,14 +186,15 @@
   .aviso { margin-top: 1.4rem; padding: 1rem 1.2rem; border-radius: 10px; border-left: 5px solid var(--verde); background: #E9F1EF; font-size: .96rem; }
   .aviso.ouro { border-left-color: var(--ouro-escuro); background: #FFF4DC; }
 
-  /* Radix */
+  /* Radix e Héstia (mesmo tamanho de logo nos dois) */
+  .parceiros { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 1.4rem; }
   a.radix {
     display: flex; align-items: center; gap: 1.2rem; background: #fff; border: 1px solid var(--borda);
     border-radius: var(--raio); padding: 1.3rem 1.5rem; text-decoration: none; color: var(--texto);
-    max-width: 720px; margin-top: 1.4rem; transition: box-shadow .15s, transform .15s, border-color .15s;
+    transition: box-shadow .15s, transform .15s, border-color .15s;
   }
   a.radix:hover { box-shadow: 0 8px 26px rgba(22, 75, 75, .15); transform: translateY(-2px); border-color: var(--ouro); color: var(--texto); }
-  a.radix img, a.radix .emoji { width: 72px; height: 72px; flex: none; border-radius: 16px; background: var(--creme-2); }
+  a.radix img, a.radix .emoji { width: 72px; height: 72px; flex: none; border-radius: 16px; background: var(--creme-2); object-fit: contain; }
   a.radix .emoji { display: grid; place-items: center; font-size: 2.2rem; }
   a.radix h3 { margin: 0 0 .2rem; }
   a.radix p { margin: 0; color: var(--suave); font-size: .96rem; }
@@ -214,6 +220,7 @@
     .heroi .container, .duas, ol.passos, footer .container { grid-template-columns: 1fr; }
     .logo-grande { order: -1; }
     section { padding: 2.5rem 0; }
+    .parceiros { grid-template-columns: 1fr; }
     a.radix { flex-direction: column; text-align: center; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -411,18 +418,28 @@
     </div>
   </section>
 
-  <!-- RADIX -->
-  <section class="alt" id="radix">
+  <!-- RADIX E HÉSTIA -->
+  <section class="alt" id="ecossistema">
     <div class="container">
       <h2>Do mesmo ecossistema</h2>
-      <a class="radix" href="https://radixapp.streamlit.app/" rel="noopener" aria-label="Abrir o aplicativo Radix">
-        <img src="radix-512.png" alt="Logotipo do Radix" width="72" height="72" data-emoji="🌱">
-        <span>
-          <h3>Radix</h3>
-          <p>Aplicativo de urbanismo, que complementa o Khepri no trabalho de planejamento e projeto.</p>
-          <span class="ir">Abrir o Radix →</span>
-        </span>
-      </a>
+      <div class="parceiros">
+        <a class="radix" href="https://radixapp.streamlit.app/" rel="noopener">
+          <img src="radix-512.png" alt="Logotipo do Radix" width="72" height="72" data-emoji="🌱">
+          <div>
+            <h3>Radix</h3>
+            <p>Aplicativo de urbanismo, que complementa o Khepri no trabalho de planejamento e projeto.</p>
+            <span class="ir">Abrir o Radix →</span>
+          </div>
+        </a>
+        <a class="radix" href="https://hestia.streamlit.app/" rel="noopener">
+          <img src="hestia-512.png" alt="Logotipo do Héstia" width="72" height="72" data-emoji="🔥">
+          <div>
+            <h3>Héstia</h3>
+            <p>Outro aplicativo do mesmo ecossistema, ao lado do Khepri e do Radix.</p>
+            <span class="ir">Abrir o Héstia →</span>
+          </div>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -434,6 +451,11 @@
       <details>
         <summary>O Khepri é gratuito?</summary>
         <p>Você pode experimentar gratuitamente durante o período de teste, criando uma conta no aplicativo. Depois do teste, o uso continua pelo plano Pro, que tem limite mensal de projetos. Valores e condições aparecem no aplicativo.</p>
+      </details>
+
+      <details>
+        <summary>Como pago o plano Pro?</summary>
+        <p>Pelo Pix, dentro do aplicativo, depois de entrar na sua conta. O app mostra o QR Code e o código copia e cola, e o plano Pro é liberado sozinho quando o pagamento é confirmado, sem precisar enviar comprovante. O plano custa R$ 49,90 por mês e comporta até 1.000 projetos por mês.</p>
       </details>
 
       <details>
@@ -478,7 +500,11 @@
       <p>Autoria: Larissa Moura Nascimento</p>
     </div>
     <div>
-      <p><a href="https://appkhepri.streamlit.app">Aplicativo</a> · <a href="https://radixapp.streamlit.app/" rel="noopener">Radix</a></p>
+      <p>
+        <a href="https://appkhepri.streamlit.app">Aplicativo</a> ·
+        <a href="https://radixapp.streamlit.app/" rel="noopener">Radix</a> ·
+        <a href="https://hestia.streamlit.app/" rel="noopener">Héstia</a>
+      </p>
       <p>Documentos gerados com base nas normas ABNT/NBR; ajustes à legislação local são de responsabilidade do profissional.</p>
     </div>
   </div>
@@ -492,15 +518,24 @@
 
 <script>
   // Se uma imagem não carregar, mostra o emoji no lugar (a página continua completa).
-  document.querySelectorAll('img[data-emoji]').forEach(function (img) {
-    img.addEventListener('error', function () {
+  // Também trata imagens que já falharam antes deste script rodar.
+  (function () {
+    function trocar(img) {
+      if (!img.parentNode) { return; }
       var s = document.createElement('span');
       s.className = 'emoji';
       s.setAttribute('aria-hidden', 'true');
       s.textContent = img.getAttribute('data-emoji');
       img.replaceWith(s);
-    }, { once: true });
-  });
+    }
+    document.querySelectorAll('img[data-emoji]').forEach(function (img) {
+      if (img.complete && img.naturalWidth === 0) {
+        trocar(img);
+      } else {
+        img.addEventListener('error', function () { trocar(img); }, { once: true });
+      }
+    });
+  })();
 </script>
 </body>
 </html>
